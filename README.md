@@ -16,7 +16,7 @@ Welcome to the Netflix Homepage Clone repository! This project is part of Hackto
 
 Clone the repository:
 ```bash
-git clone https://github.com/username/Hacktoberfest-25-2.git
+git clone https://github.com/OpenSource-UIT/Hacktoberfest-25-2.git
 cd Hacktoberfest-25-2
 ```
 
