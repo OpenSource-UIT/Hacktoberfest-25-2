@@ -1,78 +1,63 @@
-# Puzzle Vault
+# Netflix Homepage Clone
 
-Welcome to Puzzle Vault — a small, beginner-friendly web app of riddles and puzzles created for learning and contribution.
+Welcome to the Netflix Homepage Clone repository! This project is part of Hacktoberfest 2024 and aims to provide a pixel-perfect recreation of the Netflix homepage for learning web development and contributing to open source projects.
 
 ## Features
 
-- Simple, responsive UI (HTML/CSS/JS)
-- Loads puzzles from `puzzles.json`
-- Navigation (Next / Previous), answer checking, and a progress indicator
+- **Authentic Netflix Design** - Pixel-perfect recreation of Netflix's homepage layout
+- **Responsive Design** - Works on desktop, tablet, and mobile devices
+- **Interactive Elements** - Email signup, FAQ accordion, trending movies
+- **Modern UI/UX** - Smooth animations and hover effects
+- **Accessibility Features** - Keyboard navigation and screen reader support
 
-## Getting started
+## Getting Started
 
 ### Installation
 
+Clone the repository:
 ```bash
-git clone https://github.com/OpenSource-UIT/Hacktoberfest-25-4.git
-cd Hacktoberfest-25-4
+git clone https://github.com/OpenSource-UIT/Hacktoberfest-25-2.git
+cd Hacktoberfest-25-2
 ```
 
-Open `index.html` in your browser or serve the folder locally:
+Open `index.html` in your web browser to view the project.
 
-## How to use
+## How to Use
 
-- Read the puzzle displayed on the page
-- Type your answer and click "Check Answer"
-- Use "Show Answer" to reveal the solution (if available)
-- Navigate using Next / Previous buttons
+The Netflix clone includes:
+- **Hero Section** - Main landing area with email signup
+- **Trending Section** - Top 10 trending movies and shows
+- **Features Section** - TV viewing, downloads, multi-device support
+- **FAQ Section** - Frequently asked questions with expandable answers
+- **Interactive Elements** - Click buttons, hover effects, and animations
 
-## Short list of issues (priority)
+## Issues to Fix
 
-### High
-- Puzzles not showing: the `showPuzzle()` function is currently disabled, so the UI does not populate puzzle text on load.
-- Show Answer unresponsive: script queries `show-ans` but the button id is `show-answer`, so the listener isn't attached.
-- Check Answer id typo: the Check button in HTML uses `chek-answer` (typo) and the script may not find it.
+This project has several issues that need to be addressed by contributors:
 
-### Medium
-- Progress indicator is invisible: `#progress` lacks a visible background color.
-- Navigation edge-case: Next handler can set `currentIndex` to `puzzles.length` (off-by-one).
+### High Priority Issues
+- **FAQ Dropdown Not Working** - FAQ accordion functionality is broken
+- **Missing Email Validation** - No email format validation in signup forms
+- **Missing Footer** - No footer section on the page
 
-### Low
-- Minor responsive styling improvements suggested for small screens.
+### Medium Priority Issues
+- **CSS Improvements Needed** - Inconsistent styling and layout issues
+- **Missing Movie Posters** - Trending movies show only colored backgrounds
+- **Typography Issues** - Multiple spelling mistakes throughout content
 
-## Project structure
-
-```
-Puzzle Vault/
-├── index.html
-├── style.css
-├── script.js
-├── puzzles.json
-└── README.md
-```
-
-## Testing your fixes
-
-1. Open the app (index.html or served)
-2. Reproduce the issue you fix
-3. Apply the change, reload, and verify the behavior
-4. Check DevTools console for errors
+### Low Priority Issues
+- **Accessibility Improvements** - Missing ARIA attributes and form labels
+- **Performance Optimizations** - Potential memory leaks and inefficient code
+- **Add Favicon also** - Add Favicon of Netflix 
 
 ## Contributing
 
-- One bug per PR; keep fixes focused
-- Add a short description of the change and how you tested it
-- Be respectful and provide helpful PR notes
+Contributions are welcome! Feel free to open an issue or submit a pull request with your improvements and fixes.
 
-### Good first issues
-- Fix the `showPuzzle()` implementation
-- Attach the Show Answer listener correctly
-- Correct the Check Answer button id
-- Make the progress bar visually visible
-- Fix navigation boundary logic
-
-## License
-
-MIT
-
+### Good First Issues
+- Fix spelling mistakes
+- Add email validation
+- Implement FAQ dropdown
+- Add movie poster images
+- Improve CSS styling
 
