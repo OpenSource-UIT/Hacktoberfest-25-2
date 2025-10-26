@@ -495,7 +495,7 @@ body {
 .faq-answer {
     background-color: #2d2d2d;
     padding: 0 30px;
-    max-height: 0;
+    display: none;
     overflow: hidden;
     transition: max-height 0.3s ease, padding 0.3s ease;
 }

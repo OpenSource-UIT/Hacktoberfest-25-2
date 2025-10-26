@@ -1,9 +1,9 @@
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const header = document.querySelector('.header');
     const signInBtn = document.querySelector('.sign-in-btn');
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 100) {
             header.classList.add('scrolled');
         } else {
@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const emailInputs = document.querySelectorAll('.email-input');
     const getStartedBtns = document.querySelectorAll('.get-started-btn');
-    
+
     getStartedBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             const emailInput = btn.parentElement.querySelector('.email-input');
             const email = emailInput.value.trim();
-            
+
             if (email) {
                 showSignupMessage(email);
             } else {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button class="close-message">Close</button>
             </div>
         `;
-        
+
         message.style.cssText = `
             position: fixed;
             top: 0;
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: center;
             z-index: 10000;
         `;
-        
+
         const messageContent = message.querySelector('.message-content');
         messageContent.style.cssText = `
             background: #fff;
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             max-width: 400px;
             width: 90%;
         `;
-        
+
         const closeBtn = message.querySelector('.close-message');
         closeBtn.style.cssText = `
             background: #e50914;
@@ -75,15 +75,15 @@ document.addEventListener('DOMContentLoaded', function() {
             cursor: pointer;
             margin-top: 20px;
         `;
-        
+
         document.body.appendChild(message);
 
-        closeBtn.addEventListener('click', function() {
+        closeBtn.addEventListener('click', function () {
             document.body.removeChild(message);
         });
-        
+
         // Close on background click
-        message.addEventListener('click', function(e) {
+        message.addEventListener('click', function (e) {
             if (e.target === message) {
                 document.body.removeChild(message);
             }
@@ -94,19 +94,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function showEmailError(input) {
         input.style.borderColor = '#e50914';
         input.style.backgroundColor = 'rgba(229, 9, 20, 0.1)';
-        
+
         setTimeout(() => {
             input.style.borderColor = '#333';
             input.style.backgroundColor = 'rgba(0,0,0,0.7)';
         }, 3000);
-        
+
     }
 
     // Language selector functionality
     const languageSelectors = document.querySelectorAll('.language-selector select');
-    
+
     languageSelectors.forEach(selector => {
-        selector.addEventListener('change', function() {
+        selector.addEventListener('change', function () {
             const selectedLanguage = this.value;
             // Simulate language change
             console.log('Language changed to:', selectedLanguage);
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Sign in button functionality
-    signInBtn.addEventListener('click', function() {
+    signInBtn.addEventListener('click', function () {
         // Simulate sign in process
         showSignInModal();
     });
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
+
         // Add styles for the modal
         modal.style.cssText = `
             position: fixed;
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: center;
             z-index: 10000;
         `;
-        
+
         const modalContent = modal.querySelector('.modal-content');
         modalContent.style.cssText = `
             background: #fff;
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 90%;
             overflow: hidden;
         `;
-        
+
         const modalHeader = modal.querySelector('.modal-header');
         modalHeader.style.cssText = `
             background: #e50914;
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: space-between;
             align-items: center;
         `;
-        
+
         const closeModal = modal.querySelector('.close-modal');
         closeModal.style.cssText = `
             background: none;
@@ -185,19 +185,19 @@ document.addEventListener('DOMContentLoaded', function() {
             font-size: 24px;
             cursor: pointer;
         `;
-        
+
         const modalBody = modal.querySelector('.modal-body');
         modalBody.style.cssText = `
             padding: 30px;
         `;
-        
+
         const form = modal.querySelector('.signin-form');
         form.style.cssText = `
             display: flex;
             flex-direction: column;
             gap: 15px;
         `;
-        
+
         const inputs = form.querySelectorAll('input');
         inputs.forEach(input => {
             input.style.cssText = `
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 font-size: 16px;
             `;
         });
-        
+
         const submitBtn = form.querySelector('button');
         submitBtn.style.cssText = `
             background: #e50914;
@@ -218,35 +218,35 @@ document.addEventListener('DOMContentLoaded', function() {
             font-size: 16px;
             cursor: pointer;
         `;
-        
+
         const modalFooter = modal.querySelector('.modal-footer');
         modalFooter.style.cssText = `
             text-align: center;
             margin-top: 20px;
         `;
-        
+
         const signupLink = modal.querySelector('.signup-link');
         signupLink.style.cssText = `
             color: #e50914;
             text-decoration: none;
         `;
-        
+
         document.body.appendChild(modal);
-        
+
         // Close modal functionality
-        closeModal.addEventListener('click', function() {
+        closeModal.addEventListener('click', function () {
             document.body.removeChild(modal);
         });
-        
+
         // Close on background click
-        modal.addEventListener('click', function(e) {
+        modal.addEventListener('click', function (e) {
             if (e.target === modal) {
                 document.body.removeChild(modal);
             }
         });
-        
+
         // Form submission
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
             // Simulate sign in process
             document.body.removeChild(modal);
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for anchor links
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
@@ -272,16 +272,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add loading animation for buttons
     const buttons = document.querySelectorAll('button');
     buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            if (!this.classList.contains('loading')) {
-                this.classList.add('loading');
-                const originalText = this.textContent;
-                this.textContent = 'Loading...';
-                
-                setTimeout(() => {
-                    this.classList.remove('loading');
-                    this.textContent = originalText;
-                }, 2000);
+        const controlledId = button.getAttribute('aria-controls');
+        const target = controlledId ? document.getElementById(controlledId) : null;
+        const icon = button.querySelector('i');
+        button.addEventListener('click', function () {
+            // Close all other FAQ sections
+            buttons.forEach(btn => {
+                const otherId = btn.getAttribute('aria-controls');
+                const otherTarget = otherId ? document.getElementById(otherId) : null;
+                const otherIcon = btn.querySelector('i');
+
+                if (btn !== button) {
+                    btn.setAttribute('aria-expanded', 'false');
+                    if (otherTarget) otherTarget.style.display = 'none';
+                    if (otherIcon) {
+                        otherIcon.classList.remove('fa-minus');
+                        otherIcon.classList.add('fa-plus');
+                    }
+                }
+            });
+
+            // Open Clicked FAQ sections
+            if (target) {
+                const isOpen = target.style.display === 'block';
+                this.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+                target.style.display = isOpen ? 'none' : 'block';
+                if (icon) {
+                    icon.classList.toggle('fa-plus', isOpen);
+                    icon.classList.toggle('fa-minus', !isOpen);
+                }
             }
         });
     });
@@ -289,12 +308,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add hover effects for interactive elements
     const interactiveElements = document.querySelectorAll('button, .faq-question, .footer-column a');
     interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', function() {
+        element.addEventListener('mouseenter', function () {
             this.style.transform = 'scale(1.05)';
             this.style.transition = 'transform 0.2s ease';
         });
-        
-        element.addEventListener('mouseleave', function() {
+
+        element.addEventListener('mouseleave', function () {
             this.style.transform = 'scale(1)';
         });
     });
@@ -302,8 +321,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add keyboard navigation for FAQ
     faqItems.forEach((item, index) => {
         const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('keydown', function(e) {
+
+        question.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 this.click();
@@ -326,12 +345,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add focus styles for accessibility
     const focusableElements = document.querySelectorAll('button, input, select, a');
     focusableElements.forEach(element => {
-        element.addEventListener('focus', function() {
+        element.addEventListener('focus', function () {
             this.style.outline = '2px solid #e50914';
             this.style.outlineOffset = '2px';
         });
-        
-        element.addEventListener('blur', function() {
+
+        element.addEventListener('blur', function () {
             this.style.outline = 'none';
         });
     });
@@ -342,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
@@ -363,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Trending section functionality
     const trendingItems = document.querySelectorAll('.trending-item');
     trendingItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             const title = this.querySelector('h3').textContent;
             showMovieDetails(title);
         });
@@ -399,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
+
         // Add styles for the modal
         modal.style.cssText = `
             position: fixed;
@@ -413,7 +432,7 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: center;
             z-index: 10000;
         `;
-        
+
         const modalContent = modal.querySelector('.modal-content');
         modalContent.style.cssText = `
             background: #141414;
@@ -424,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 90%;
             overflow: hidden;
         `;
-        
+
         const modalHeader = modal.querySelector('.modal-header');
         modalHeader.style.cssText = `
             background: #e50914;
@@ -434,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: space-between;
             align-items: center;
         `;
-        
+
         const closeModal = modal.querySelector('.close-modal');
         closeModal.style.cssText = `
             background: none;
@@ -443,14 +462,14 @@ document.addEventListener('DOMContentLoaded', function() {
             font-size: 24px;
             cursor: pointer;
         `;
-        
+
         const modalBody = modal.querySelector('.modal-body');
         modalBody.style.cssText = `
             padding: 30px;
             display: flex;
             gap: 20px;
         `;
-        
+
         const moviePoster = modal.querySelector('.movie-poster');
         moviePoster.style.cssText = `
             flex: 1;
@@ -461,25 +480,25 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: center;
             min-height: 200px;
         `;
-        
+
         const posterPlaceholder = modal.querySelector('.poster-placeholder');
         posterPlaceholder.style.cssText = `
             font-size: 3rem;
             color: #fff;
         `;
-        
+
         const movieInfo = modal.querySelector('.movie-info');
         movieInfo.style.cssText = `
             flex: 1;
         `;
-        
+
         const movieActions = modal.querySelector('.movie-actions');
         movieActions.style.cssText = `
             display: flex;
             gap: 15px;
             margin-top: 20px;
         `;
-        
+
         const playBtn = modal.querySelector('.play-btn');
         playBtn.style.cssText = `
             background: #e50914;
@@ -492,7 +511,7 @@ document.addEventListener('DOMContentLoaded', function() {
             align-items: center;
             gap: 8px;
         `;
-        
+
         const addToListBtn = modal.querySelector('.add-to-list-btn');
         addToListBtn.style.cssText = `
             background: transparent;
@@ -505,29 +524,29 @@ document.addEventListener('DOMContentLoaded', function() {
             align-items: center;
             gap: 8px;
         `;
-        
+
         document.body.appendChild(modal);
-        
+
         // Close modal functionality
-        closeModal.addEventListener('click', function() {
+        closeModal.addEventListener('click', function () {
             document.body.removeChild(modal);
         });
-        
+
         // Close on background click
-        modal.addEventListener('click', function(e) {
+        modal.addEventListener('click', function (e) {
             if (e.target === modal) {
                 document.body.removeChild(modal);
             }
         });
-        
+
         // Play button functionality
-        playBtn.addEventListener('click', function() {
+        playBtn.addEventListener('click', function () {
             alert(`Starting playback for ${title}!`);
             document.body.removeChild(modal);
         });
-        
+
         // Add to list functionality
-        addToListBtn.addEventListener('click', function() {
+        addToListBtn.addEventListener('click', function () {
             this.innerHTML = '<i class="fas fa-check"></i> Added to My List';
             this.style.background = '#e50914';
             this.style.border = 'none';
@@ -554,18 +573,18 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: opacity 0.3s ease;
         z-index: 1000;
     `;
-    
+
     document.body.appendChild(scrollToTopBtn);
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 500) {
             scrollToTopBtn.style.opacity = '1';
         } else {
             scrollToTopBtn.style.opacity = '0';
         }
     });
-    
-    scrollToTopBtn.addEventListener('click', function() {
+
+    scrollToTopBtn.addEventListener('click', function () {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
