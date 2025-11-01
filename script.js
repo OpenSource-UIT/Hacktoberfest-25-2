@@ -358,20 +358,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-
-    // Add focus styles for accessibility
-    const focusableElements = document.querySelectorAll('button, input, select, a');
-    focusableElements.forEach(element => {
-        element.addEventListener('focus', function () {
-            this.style.outline = '2px solid #e50914';
-            this.style.outlineOffset = '2px';
-        });
-
-        element.addEventListener('blur', function () {
-            this.style.outline = 'none';
-        });
-    });
-
+   
     // Add intersection observer for animations
     const observerOptions = {
         threshold: 0.1,
