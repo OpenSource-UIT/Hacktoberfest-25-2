@@ -3,6 +3,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const header = document.querySelector('.header');
     const signInBtn = document.querySelector('.sign-in-btn');
 
+    // Validation functions
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function showError(errorDiv, message) {
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+    }
+
+    function clearError(errorDiv) {
+        errorDiv.style.display = 'none';
+    }
+
     window.addEventListener('scroll', function () {
         if (window.scrollY > 100) {
             header.classList.add('scrolled');
@@ -12,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     const faqItems = document.querySelectorAll('.faq-item');
 
-    const emailInputs = document.querySelectorAll('.email-input');
     const getStartedBtns = document.querySelectorAll('.get-started-btn');
 
     getStartedBtns.forEach(btn => {
@@ -20,12 +34,15 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             const emailInput = btn.parentElement.querySelector('.email-input');
             const email = emailInput.value.trim();
+            const errorDiv = this.parentElement.parentElement.querySelector('.email-error');
 
-            if (email) {
-                showSignupMessage(email);
-            } else {
-                showEmailError(emailInput);
+            if (!validateEmail(email)) {
+                showError(errorDiv, 'Please enter a valid email address.');
+                return;
             }
+
+            clearError(errorDiv);
+            showSignupMessage(email);
         });
     });
 
